@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import NewsList from './components/NewsList'
 import NewsCard from './components/NewsCard'
+import NewsDetail from './components/NewsDetail'
 import TopBar from './components/TopBar'
 import Slide from './components/Slide'
 
@@ -14,8 +16,7 @@ class App extends Component {
             <MuiThemeProvider>
                 <div>
                     <TopBar/>
-                    <NewsCard/>
-                    <Slide/>
+                    <NewsDetail/>
                 </div>
             </MuiThemeProvider>
         );

@@ -23,6 +23,7 @@ class TopBar extends React.Component {
                     style={style}
                     title="武汉大学学生会新闻网"
                     iconElementRight={<IconButton><Search/></IconButton>}
+                    zDepth={10}
                 />
             </div>
         )

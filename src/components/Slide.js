@@ -4,13 +4,15 @@
 import React from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
+import './slide.css'
 
 class Slide extends React.Component {
     render() {
         return (
-            <div>
+            <div className="slide">
                 <Drawer
                     open={true}
+                    containerStyle={{top: 64}}
                 >
                     <MenuItem>menuitem</MenuItem>
                 </Drawer>
