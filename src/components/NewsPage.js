@@ -22,25 +22,25 @@ class NewsPage extends React.Component {
                     <h3 className="news-subtitle">
                         ——这里是副标题
                     </h3>
-                    <div className="news-detail-info-wrapper">
-                        <span>作者：小明</span>
-                        <span>编辑：小明</span>
-                        <span>发布时间：5小时前</span>
-                    </div>
+
                     <Divider />
                     <div className="news-content">
                         sdasdasd
                     </div>
                     <Divider />
-                    <div className="news-detail-view-wrapper">
-                        <span className="news-like">
-                            <Favorite/>
+                    <div className="news-detail-info-wrapper">
+                        <span className="news-detail-like">
+                                <Favorite/>
                             15
                         </span>
-                        <span className="news-view">
-                            <Visibility/>
+                        <span className="news-detail-view">
+                                <Visibility/>
                             15
                         </span>
+                        <span>作者：小明</span>
+                        <span>编辑：小明</span>
+                        <span>发布时间：5小时前</span>
+
                     </div>
 
 
