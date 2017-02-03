@@ -19,7 +19,7 @@ class NewsCard extends React.Component {
                 </CardMedia>
                 <div className="news-text-wrapper">
                     <h4 className="news-title">
-                        传递温暖，共享年味s
+                        传递温暖，共享年味
                     </h4>
                     <p className="news-tag">校园/遥感</p>
                     <span className="news-bottom-info news-time">5小时前</span>
