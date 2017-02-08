@@ -13,6 +13,11 @@ class NewsList extends React.Component {
                 <NewsCard/>
                 <NewsCard/>
                 <NewsCard/>
+                <NewsCard/>
+                <NewsCard/>
+                <NewsCard/>
+                <NewsCard/>
+                <NewsCard/>
             </div>
         )
     }

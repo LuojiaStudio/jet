@@ -11,9 +11,11 @@ class Index extends React.Component {
     render() {
         return (
             <div className="index">
-                <TopBar/>
+                <div className="main-wrapper">
+                    <TopBar/>
+                    <NewsList/>
+                </div>
                 <SideBar/>
-                <NewsList/>
             </div>
         )
     }
