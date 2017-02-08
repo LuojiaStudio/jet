@@ -12,10 +12,15 @@ class TopBar extends React.Component {
             <div className="top-bar">
                 <AppBar
                     showMenuIconButton={false}
+                    style={{backgroundColor:'#3F51B5'}}
                     iconElementRight={
                         <div className="top-bar-el-right-wrapper">
-                            <FlatButton label='登录'/>
-                            <FlatButton label='注册'/>
+                            <FlatButton
+                                labelStyle={{color:'#ffffff'}}
+                                label='登录'/>
+                            <FlatButton
+                                labelStyle={{color:'#ffffff'}}
+                                label='注册'/>
                         </div>
                         }
                 />

@@ -1,0 +1,30 @@
+.news-card {
+    width: 270px;
+    display: inline-block;
+    margin: 20px;
+}
+.card-img-wrapper {
+    width: 270px;
+    height: 180px;
+    background: #333;
+}
+.card-title {
+    margin: 10px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    max-height: 48px;
+    overflow: hidden;
+}
+.news-card-tags {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #777777;
+}
+.news-info-wrapper {
+    padding: 20px 20px 10px 20px;
+}
+.news-info-wrapper span {
+    font-size: 12px;
+    margin-right: 20px;
+}
