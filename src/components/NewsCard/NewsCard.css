@@ -2,6 +2,7 @@
     width: 270px;
     display: inline-block;
     margin: 20px;
+    cursor: pointer;
 }
 .card-img-wrapper {
     width: 270px;
