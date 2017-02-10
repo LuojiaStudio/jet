@@ -6,11 +6,15 @@ import React from 'react';
 class SideBar extends React.Component {
     render() {
         return (
-           <aside className="side-bar mdl-shadow--4dp">
-
+           <aside className="side-bar">
+               <a href="#">校园</a>
+               <a href="#">评论</a>
+               <a href="#">人物</a>
+               <a href="#">特写</a>
+               <a href="#">院系</a>
            </aside>
         )
-    }
-}
 
+}
+}
 export default SideBar;

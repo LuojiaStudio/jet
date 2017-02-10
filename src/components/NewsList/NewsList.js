@@ -3,8 +3,6 @@
  */
 import React from 'react';
 import NewsCard from '../NewsCard/NewsCard'
-import './NewsList.css';
-
 
 class NewsList extends React.Component {
     render() {

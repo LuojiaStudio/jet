@@ -3,21 +3,18 @@
  */
 import React from 'react';
 import TopBar from '../TopBar/TopBar';
-import SideBar from '../SideBar/SideBar';
-import NewsList from '../NewsList/NewsList';
+import NewsPage from '../NewsPage/NewsPage';
 import Footer from '../Footer/Footer';
-import './Index.css';
 
 class Index extends React.Component {
     render() {
         return (
-            <div className="index">
+            <div className="root-wrapper">
                 <TopBar/>
-                <main className="main-container mdl-layout__content">
-                    <div className="mdl-grid mdl-grid--no-spacing">
-                        <SideBar/>
-                    </div>
+                <main className="page-container">
+                    <NewsPage/>
                 </main>
+                <Footer/>
             </div>
         )
     }
