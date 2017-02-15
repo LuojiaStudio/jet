@@ -68,7 +68,7 @@ li {
 /*side bar*/
 .side-bar {
   flex: none;
-  width: 250px;
+  width: 200px;
   padding-top: 20px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
@@ -142,9 +142,9 @@ li {
 /*news card*/
 .news-card {
   width: 312px;
-  margin: 20px;
+  margin: 30px;
   border-radius: 2px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
@@ -156,7 +156,10 @@ li {
 .news-card-media {
   width: 100%;
   height: 200px;
-  background: #333333;
+  background-image: url("http://oss.whusu.com.cn//news_pic/1479365274000.jpg");
+  background-size: cover;
+  background-position: center;
+  transition: all .3s;
 }
 
 .news-card-title {
