@@ -12,21 +12,10 @@ class NewsCard extends React.Component {
             tags_str: ''
         };
         this.generateTagsStr = this.generateTagsStr.bind(this);
-        this.handleMouseOver = this.handleMouseOver.bind(this);
-        this.handleMouseOut = this.handleMouseOut.bind(this)
     }
 
     componentDidMount() {
         this.generateTagsStr()
-    }
-
-    handleMouseOver(e) {
-        console.log(e.target)
-    }
-
-    handleMouseOut(e) {
-       let new_card_media = document.getElementById("js_news_card_media");
-       new_card_media.style.backgroundSize = "cover"
     }
 
     generateTagsStr() {
@@ -60,7 +49,7 @@ class NewsCard extends React.Component {
                 <h2 className="news-card-title">{this.props.title}</h2>
                 <p className="news-card-tags">{this.state.tags_str}</p>
                 <div className="news-card-info">
-                    <span><i className="fa fa-calendar"></i>{this.props.issue_time}</span>
+                    <span><i className="fa fa-calendar"></i>{this.props.issue_time}前</span>
                     <span><i className="fa fa-eye"></i>{this.props.view_num}阅读</span>
                 </div>
             </div>

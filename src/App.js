@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Router, Route, hashHistory } from 'react-router'
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+import NewsDetailPage from './components/NewsDetailPage'
+import Index from './components/Index';
 
-import Index from './components/Index/Index';
+window.the_url = "http://127.0.0.1:8000";
 
 class App extends Component {
     render() {
         return (
-            <MuiThemeProvider>
-            <Router history={hashHistory}>
-                <Route path="/" component={Index}/>
-                <Route path="/news/" component={Index}/>
-            </Router>
-            </MuiThemeProvider>
+            <div className="App">
+                <Router history={hashHistory}>
+                    <Route path="/" component={Index}/>
+                    <Route path="/:tag" component={Index}/>
+                    <Route path="/news/:id" component={NewsDetailPage}/>
+                </Router>
+            </div>
         );
     }
 }

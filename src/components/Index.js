@@ -2,17 +2,24 @@
  * Created by Jsceoz on 2017/2/8.
  */
 import React from 'react';
-import TopBar from '../TopBar/TopBar';
-import NewsPage from '../NewsPage/NewsPage';
-import Footer from '../Footer/Footer';
+import TopBar from './TopBar';
+import SideBar from './SideBar';
+import NewsList from './NewsList';
+import Footer from './Footer';
 
 class Index extends React.Component {
+
     render() {
         return (
             <div className="root-wrapper">
                 <TopBar/>
                 <main className="page-container">
-                    <NewsPage/>
+                    <main className="news-page-content">
+                        <SideBar/>
+                        <NewsList
+                            tag={this.props.params.tag}
+                        />
+                    </main>
                 </main>
                 <Footer/>
             </div>
