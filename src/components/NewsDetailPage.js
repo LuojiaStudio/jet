@@ -27,7 +27,8 @@ class NewsDetailPage extends React.Component {
                     title: data.title,
                     tags_str: data.tags_str,
                     author: data.author,
-                    create_time: data.create_time,
+                    photographer: data.photographer,
+                    create_time: data.create_time.slice(0,10),
                     like_number: data.like_number,
                     view_number: data.view_number,
                     content: data.content
@@ -45,9 +46,14 @@ class NewsDetailPage extends React.Component {
                     <div className="news-detail-paper">
                         <div className="news-detail-header">
                             <div className="news-detail-tags">{this.state.tags_str}</div>
-                            <div className="news-detail-info">{this.state.create_time}</div>
+                            <h2 className="news-detail-title">{this.state.title}</h2>
+                            <div className="news-detail-info">
+                                <span>发布日期：{this.state.create_time}</span>
+                                <span>作者：{this.state.author}</span>
+                                <span>摄影：{this.state.photographer}</span>
+                            </div>
                         </div>
-                        <h2 className="news-detail-title">{this.state.title}</h2>
+
                         <div className="news-detail-content" dangerouslySetInnerHTML={{__html: content}}>
 
                         </div>

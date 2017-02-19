@@ -3,12 +3,15 @@
  */
 import React from 'react';
 import NewsCard from './NewsCard'
+import Loading from './Loading';
+
 
 class NewsList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             news_arr: [],
+            loading: false
         }
     }
 
@@ -22,13 +25,17 @@ class NewsList extends React.Component {
     }
 
     getNewsList(tag) {
+        this.setState({
+            loading:true
+        });
         let self = this;
         if (tag) {
             fetch("http://127.0.0.1:8000/news/article/?tags=" + tag).then(function (response) {
                 response.json().then(function (data) {
                     console.log(data);
                     self.setState({
-                        news_arr: data.results
+                        news_arr: data.results,
+                        loading:false
                     })
                 })
             })
@@ -61,6 +68,9 @@ class NewsList extends React.Component {
                         />
                     ))
                 }
+                <Loading
+                    open={this.state.loading}
+                />
             </div>
         )
     }

@@ -11,29 +11,6 @@ class NewsCard extends React.Component {
         this.state = {
             tags_str: ''
         };
-        this.generateTagsStr = this.generateTagsStr.bind(this);
-    }
-
-    componentDidMount() {
-        this.generateTagsStr()
-    }
-
-    generateTagsStr() {
-        let tags_str = '';
-        let self = this;
-        for ( let i = 0; i < this.props.tags.length; i++ ) {
-            fetch("http://127.0.0.1:8000/news/tag/" + this.props.tags[i] +"/").then(function (response) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    tags_str += ( data.name + '/' );
-
-                })
-            })
-        }
-        // tags_str = tags_str.slice(0, tags_str.length - 1);
-        // this.setState({
-        //     tags_str: tags_str
-        //})
     }
 
     render() {
