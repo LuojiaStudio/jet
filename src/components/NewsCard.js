@@ -20,23 +20,27 @@ class NewsCard extends React.Component {
 
     generateTagsStr() {
         let tags_str = '';
+        let self = this;
         for ( let i = 0; i < this.props.tags.length; i++ ) {
-            tags_str += this.props.tags[i] + '/'
+            fetch("http://127.0.0.1:8000/news/tag/" + this.props.tags[i] +"/").then(function (response) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    tags_str += ( data.name + '/' );
+
+                })
+            })
         }
-        tags_str = tags_str.slice(0, tags_str.length - 1);
-        this.setState({
-            tags_str: tags_str
-
-
-        })
+        // tags_str = tags_str.slice(0, tags_str.length - 1);
+        // this.setState({
+        //     tags_str: tags_str
+        //})
     }
 
     render() {
         return (
-            <div
+            <a
+                href={"#/news/"+ this.props.id}
                 className="news-card"
-                onMouseOver={this.handleMouseOver}
-                onMouseOut={this.handleMouseOut}
             >
                 <div
                     className="news-card-media"
@@ -47,12 +51,12 @@ class NewsCard extends React.Component {
                     }}
                 ></div>
                 <h2 className="news-card-title">{this.props.title}</h2>
-                <p className="news-card-tags">{this.state.tags_str}</p>
+                <p className="news-card-tags">{this.props.tags}</p>
                 <div className="news-card-info">
                     <span><i className="fa fa-calendar"></i>{this.props.issue_time}前</span>
                     <span><i className="fa fa-eye"></i>{this.props.view_num}阅读</span>
                 </div>
-            </div>
+            </a>
         )
     }
 }

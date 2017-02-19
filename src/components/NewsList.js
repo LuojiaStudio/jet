@@ -13,17 +13,12 @@ class NewsList extends React.Component {
     }
 
     componentWillMount() {
-        if (this.props.tag) {
-            this.getNewsList(this.props.tag)
-        }
-        else {
-            this.getNewsList(null)
-        }
-
+        this.getNewsList(this.props.tag)
     }
 
-    componentWillUpdate() {
-        this.componentWillMount()
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.tag);
+        this.getNewsList(nextProps.tag)
     }
 
     getNewsList(tag) {
@@ -52,15 +47,17 @@ class NewsList extends React.Component {
 
     render() {
         return (
+
             <div className="news-list">
                 {
                     this.state.news_arr.map(news => (
                         <NewsCard
+                            id={news.id}
                             title={news.title}
                             cover={news.cover}
-                            tags={news.tags}
+                            tags={news.tags_str}
                             issue_time={news.humaniza_create_time}
-                            view_num={news.view_num}
+                            view_num={news.view_number}
                         />
                     ))
                 }
@@ -70,7 +67,7 @@ class NewsList extends React.Component {
 }
 
 NewsList.protoTypes = {
-    tags: React.PropTypes.array
+    tag: React.PropTypes.array
 };
 
 export default NewsList;

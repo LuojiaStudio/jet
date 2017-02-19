@@ -15,10 +15,11 @@ class SideBar extends React.Component {
     render() {
         return (
            <aside className="side-bar">
-               <a href="#">校园</a>
-               <a href="#">评论</a>
-               <a href="#">人物</a>
-               <a href="#">特写</a>
+               <a href="#/1/">校园</a>
+               <a href="#/2/">聚焦</a>
+               <a href="#/3/">人物</a>
+               <a href="#/4/">评论</a>
+               <a href="#/5/">特写</a>
                <a href="#">院系</a>
            </aside>
         )

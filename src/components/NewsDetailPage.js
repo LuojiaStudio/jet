@@ -20,29 +20,38 @@ class NewsDetailPage extends React.Component {
 
     getNewsDetail() {
         let self = this;
-        fetch(window.the_url + "news/article/" + this.props.id).then(function (response) {
+        fetch(window.the_url + "/news/article/" + this.props.params.id + "/").then(function (response) {
             response.json().then(function (data) {
+                console.log(data);
                 self.setState({
-                    article: data
+                    title: data.title,
+                    tags_str: data.tags_str,
+                    author: data.author,
+                    create_time: data.create_time,
+                    like_number: data.like_number,
+                    view_number: data.view_number,
+                    content: data.content
                 })
             })
         })
     }
 
     render() {
+        let content = this.state.content;
         return (
             <div className="news-detail-page">
                 <TopBar/>
                 <main className="news-detail-container">
                     <div className="news-detail-paper">
                         <div className="news-detail-header">
-                            <div className="news-detail-tags">校园/评论</div>
-                            <div className="news-detail-info">2016-11-16</div>
+                            <div className="news-detail-tags">{this.state.tags_str}</div>
+                            <div className="news-detail-info">{this.state.create_time}</div>
                         </div>
-                        <div className="news-detail-content">
-                            <h2 className="news-detail-title">新闻新闻</h2>
+                        <h2 className="news-detail-title">{this.state.title}</h2>
+                        <div className="news-detail-content" dangerouslySetInnerHTML={{__html: content}}>
 
                         </div>
+
                         <div className="news-detail-action">
 
                         </div>
