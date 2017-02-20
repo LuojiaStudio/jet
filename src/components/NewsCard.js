@@ -13,6 +13,10 @@ class NewsCard extends React.Component {
         };
     }
 
+    componentWillMount() {
+
+    }
+
     render() {
         return (
             <a
@@ -22,16 +26,13 @@ class NewsCard extends React.Component {
                 <div
                     className="news-card-media"
                     id="js_news_card_media"
-                    style={{
-                        backgroundImage: 'url("' + this.props.cover + '")',
-                        transition: "all 1s"
-                    }}
+                    style={{backgroundImage: 'url("' + this.props.cover + '")',}}
                 ></div>
                 <h2 className="news-card-title">{this.props.title}</h2>
                 <p className="news-card-tags">{this.props.tags}</p>
                 <div className="news-card-info">
-                    <span><i className="fa fa-calendar"></i>{this.props.issue_time}前</span>
-                    <span><i className="fa fa-eye"></i>{this.props.view_num}阅读</span>
+                    <span><i className="fa fa-calendar"/>{this.props.issue_time}前</span>
+                    <span><i className="fa fa-eye"/>{this.props.view_num}阅读</span>
                 </div>
             </a>
         )

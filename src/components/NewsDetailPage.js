@@ -4,14 +4,19 @@
 import React from 'react';
 import TopBar from './TopBar';
 import Footer from './Footer';
+import Loading from './Loading';
 
 class NewsDetailPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            loading: false
         };
         this.getNewsDetail = this.getNewsDetail.bind(this)
+    }
+
+    componentWillMount() {
+        document.body.scrollTop = 0;
     }
 
     componentDidMount() {
@@ -19,10 +24,12 @@ class NewsDetailPage extends React.Component {
     }
 
     getNewsDetail() {
+        this.setState({
+            loading: true
+        });
         let self = this;
         fetch(window.the_url + "/news/article/" + this.props.params.id + "/").then(function (response) {
             response.json().then(function (data) {
-                console.log(data);
                 self.setState({
                     title: data.title,
                     tags_str: data.tags_str,
@@ -31,7 +38,8 @@ class NewsDetailPage extends React.Component {
                     create_time: data.create_time.slice(0,10),
                     like_number: data.like_number,
                     view_number: data.view_number,
-                    content: data.content
+                    content: data.content,
+                    loading: false
                 })
             })
         })
@@ -59,11 +67,11 @@ class NewsDetailPage extends React.Component {
                         </div>
 
                         <div className="news-detail-action">
-
                         </div>
                     </div>
                 </main>
                 <Footer/>
+                <Loading open={this.state.loading}/>
             </div>
         )
     }

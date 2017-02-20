@@ -5,7 +5,6 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import NewsDetailPage from './components/NewsDetailPage'
 import Index from './components/Index';
 
-import MenuItem from './components/MenuItem'
 
 window.the_url = "http://127.0.0.1:8000";
 

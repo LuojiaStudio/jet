@@ -10,7 +10,7 @@ class TopBar extends React.Component {
                 <h3 className="header-title">武汉大学学生会新闻网</h3>
                 <div className="header-tab-bar">
                     <a href="#" className="tab-item tab-item-active">新闻</a>
-                    <a href="#" className="tab-item">相册</a>
+                    <a href="#" className="tab-item">图集</a>
                     <a href="#" className="tab-item">视频</a>
                     <a href="#" className="tab-item">直播</a>
                     <div className="tab-line"></div>

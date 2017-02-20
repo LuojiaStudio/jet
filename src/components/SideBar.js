@@ -3,8 +3,6 @@
  */
 import React from 'react';
 import MenuItem from './MenuItem';
-import Loading from './Loading';
-
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -23,7 +21,6 @@ class SideBar extends React.Component {
         let self = this;
         fetch(window.the_url + "/news/tag/?is_source=true").then(function (response) {
             response.json().then(function (data) {
-                console.log(data);
                 self.setState({
                     schoolList: data.results
                 })
@@ -33,22 +30,27 @@ class SideBar extends React.Component {
 
     render() {
         return (
-           <aside className="side-bar">
-               <li>
-                <a href="#/1/">校园</a>
-               </li>
-               <li>
-                   <a href="#/2/">聚焦</a>
-               </li>
-               <li>
-                   <a href="#/3/">人物</a>
-               </li>
-               <li>
-                   <a href="#/4/">评论</a>
-               </li>
-               <li>
-                   <a href="#/5/">特写</a>
-               </li>
+           <aside id="js_side_bar" className="side-bar">
+               <MenuItem
+                   title="校园"
+                   href="#/1/"
+               />
+               <MenuItem
+                   title="聚焦"
+                   href="#/2/"
+               />
+               <MenuItem
+                   title="人物"
+                   href="#/3/"
+               />
+               <MenuItem
+                   title="评论"
+                   href="#/4/"
+               />
+               <MenuItem
+                   title="特写"
+                   href="#/5/"
+               />
                <MenuItem
                    title="院系"
                    children={this.state.schoolList.map(school => (

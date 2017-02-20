@@ -27,11 +27,11 @@ class MenuItem extends React.Component {
 
             if (this.state.displayChildren) {
                 content = this.props.children;
-                arrow = <i className="fa fa-chevron-up toggle-arrow" aria-hidden="true"></i>
+                arrow = <i className="fa fa-chevron-up toggle-arrow" aria-hidden="true"/>
             }
             else {
                 content = null;
-                arrow = <i className="fa fa-chevron-down toggle-arrow" aria-hidden="true"></i>
+                arrow = <i className="fa fa-chevron-down toggle-arrow" aria-hidden="true"/>
 
             }
         }
@@ -42,7 +42,13 @@ class MenuItem extends React.Component {
 
         return (
             <li>
-                <a onClick={this.handleClick} className="menu-item">{this.props.title}{arrow}</a>
+                <a
+                    onClick={this.handleClick}
+                    className="menu-item"
+                    href={this.props.href}
+                >
+                    {this.props.title}{arrow}
+                </a>
                 <div className="children">
                     {content}
                 </div>
