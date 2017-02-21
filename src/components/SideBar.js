@@ -33,28 +33,28 @@ class SideBar extends React.Component {
            <aside id="js_side_bar" className="side-bar">
                <MenuItem
                    title="校园"
-                   href="#/1/"
+                   href="#/category/1/"
                />
                <MenuItem
                    title="聚焦"
-                   href="#/2/"
+                   href="#/category/2/"
                />
                <MenuItem
                    title="人物"
-                   href="#/3/"
+                   href="#/category/3/"
                />
                <MenuItem
                    title="评论"
-                   href="#/4/"
+                   href="#/category/4/"
                />
                <MenuItem
                    title="特写"
-                   href="#/5/"
+                   href="#/category/5/"
                />
                <MenuItem
                    title="院系"
                    children={this.state.schoolList.map(school => (
-                       <a href={"#/" + school.id + "/"}>{school.name}</a>
+                       <a href={"#/category/" + school.id + "/"}>{school.name}</a>
                    ))}
                />
            </aside>

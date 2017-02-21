@@ -46,6 +46,10 @@ li {
   text-align: center;
 }
 
+.ban-item {
+  cursor: not-allowed;
+}
+
 .tab-item-active {
   color: #ffffff;
 }
@@ -103,6 +107,13 @@ li {
 
 .side-bar a:hover {
   background: #eeeeee;
+}
+
+.search-item input {
+  display: block;
+  margin: 0 auto;
+  outline: none;
+  border: 1px solid #000000;
 }
 
 
@@ -175,7 +186,37 @@ li {
   width: 50px;
   height: 50px;
   margin-bottom: 10px;
-  background: #aaa;
+  background: #cccccc;
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.search-wrapper {
+  display: none;
+  position: fixed;
+  bottom: 180px;
+  right: 80px;
+  width: 400px;
+  height: 50px;
+}
+
+.search-wrapper input {
+  outline:none;
+  border: 1px solid #aaa;
+  width: 400px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.search-wrapper i {
+
+  position: absolute;
+  right: 16px;
+  font-size: 22px;
+  top: 11px;
 }
 
 /*news card*/
@@ -240,7 +281,7 @@ li {
 }
 
 .news-detail-paper {
-  width: 800px;
+  max-width: 1000px;
   min-height: 1000px;
   margin: 50px auto;
   padding: 30px;
@@ -284,7 +325,6 @@ li {
 }
 
 .toggle-arrow {
-
   float: right;
   line-height: 50px;
   padding-right: 25px;
@@ -350,6 +390,17 @@ li {
        transform: scaleY(1.0);
        -webkit-transform: scaleY(1.0);
      }
+}
+
+/*notification*/
+.notification {
+  position: fixed;
+  width: 200px;
+  height: 30px;
+  background: beige;
+  bottom: 0;
+  left: 50%;
+  margin-left: -100px;
 }
 
 

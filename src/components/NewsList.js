@@ -4,6 +4,7 @@
 import React from 'react';
 import NewsCard from './NewsCard'
 import Loading from './Loading';
+import Notification from './Notification'
 
 
 class NewsList extends React.Component {
@@ -13,13 +14,18 @@ class NewsList extends React.Component {
             news_arr: [],
             current_tag: null,
             next_page: null,
-            loading: false
+            loading: false,
+            is_notification_open: false,
+            notification: '',
+            search_query: ""
         };
 
         this.getMore = this.getMore.bind(this);
         this.loading = this.loading.bind(this);
         this.fetchNews = this.fetchNews.bind(this);
-        this.setSideBarMaxHeight = this.setSideBarMaxHeight.bind(this)
+        this.setSideBarMaxHeight = this.setSideBarMaxHeight.bind(this);
+        this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+        this.notification = this.notification.bind(this)
     }
 
     componentWillMount() {
@@ -31,7 +37,7 @@ class NewsList extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.getNewsList(nextProps.tag);
+        this.getNewsList(nextProps.tag, nextProps.search);
     }
 
     fetchNews(url) {
@@ -48,11 +54,15 @@ class NewsList extends React.Component {
         })
     }
 
-    getNewsList(tag) {
+    getNewsList(tag, search) {
         this.loading();
         if (tag) {
             this.setState({current_tag: tag});
             this.fetchNews(window.the_url + "/news/article/?tags=" + tag)
+        }
+        else if (search){
+            this.setState({current_tag: null});
+            this.fetchNews(window.the_url + "/news/article/?search=" + search)
         }
         else {
             this.setState({current_tag: null});
@@ -61,6 +71,10 @@ class NewsList extends React.Component {
     }
 
     getMore() {
+        if (this.state.next_page == null) {
+            this.notification("没有了");
+            return
+        }
         this.loading();
         let self = this;
         let old_news_arr = this.state.news_arr;
@@ -87,6 +101,33 @@ class NewsList extends React.Component {
         document.getElementById("js_side_bar").style.maxHeight = document.getElementById("js_news_list").offsetHeight + "px";
     }
 
+    backToTop() {
+        document.body.scrollTop = 0
+    }
+
+    showSearchInput() {
+        if (document.getElementById("js_search_wrapper").style.display === "block") {
+            document.getElementById("js_search_wrapper").style.display = "none"
+        }
+        else {
+            document.getElementById("js_search_wrapper").style.display = "block"
+        }
+
+    }
+
+    handleSearchInputChange(e) {
+        this.setState({
+            search_query: e.target.value
+        })
+    }
+
+    notification(msg) {
+        this.setState({
+            notification: msg,
+            is_notification_open: true
+        })
+    }
+
     render() {
         return (
             <div className="news-list-wrapper">
@@ -106,9 +147,18 @@ class NewsList extends React.Component {
                 </div>
                 <Loading open={this.state.loading}/>
                 <div className="news-list-action">
-                    <div className="news-list-btn" onClick={this.getMore}>加载更多</div>
-                    <div className="news-list-btn">回到顶部</div>
+                    <div className="news-list-btn" onClick={this.showSearchInput}><i className="fa fa-search"/></div>
+                    <div className="news-list-btn" onClick={this.backToTop}><i className="fa fa-angle-up"/></div>
+                    <div className="news-list-btn" onClick={this.getMore}><i className="fa fa-angle-down"/></div>
                 </div>
+                <div className="search-wrapper" id="js_search_wrapper">
+                    <input type="text" placeholder="搜索" onChange={this.handleSearchInputChange}/>
+                    <a href={"#/search/" + this.state.search_query}><i className="fa fa-search"/></a>
+                </div>
+                <Notification
+                    open={this.state.is_notification_open}
+                    message={this.state.notification}
+                />
 
             </div>
         )

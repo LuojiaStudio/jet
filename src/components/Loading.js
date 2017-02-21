@@ -5,13 +5,7 @@ import React from 'react';
 
 class Loading extends React.Component {
     render() {
-        let display;
-        if (this.props.open) {
-            display = "block"
-        }
-        else {
-            display = "none"
-        }
+        let display = this.props.open ? "block" : "none";
         return (
             <div
                 style={{display: display}}

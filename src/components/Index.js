@@ -18,6 +18,7 @@ class Index extends React.Component {
                         <SideBar/>
                         <NewsList
                             tag={this.props.params.tag}
+                            search={this.props.params.search}
                         />
                     </main>
                 </main>

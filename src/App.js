@@ -14,7 +14,8 @@ class App extends Component {
             <div className="App">
                 <Router history={hashHistory}>
                     <Route path="/" component={Index}/>
-                    <Route path="/:tag" component={Index}/>
+                    <Route path="category/:tag" component={Index}/>
+                    <Route path="search/:search" component={Index}/>
                     <Route path="/news/:id" component={NewsDetailPage}/>
                 </Router>
             </div>
