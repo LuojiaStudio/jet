@@ -21,6 +21,8 @@ class NewsDetailPage extends React.Component {
 
     componentDidMount() {
         this.getNewsDetail();
+        this.postView();
+
     }
 
     getNewsDetail() {
@@ -40,6 +42,28 @@ class NewsDetailPage extends React.Component {
                     view_number: data.view_number,
                     content: data.content,
                     loading: false
+                })
+            })
+        })
+    }
+
+
+    postView() {
+        let self = this;
+        fetch(window.the_url + "/news/get_ip/").then(function (response) {
+            response.json().then(function (data) {
+                let ip = data.ip;
+                let paylaod = {
+                    ip: ip,
+                    id: self.props.params.id
+                };
+
+                fetch(window.the_url + "/news/view/", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(paylaod)
                 })
             })
         })
