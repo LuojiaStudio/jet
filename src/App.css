@@ -192,6 +192,10 @@ li {
   text-align: center;
 }
 
+.news-list-btn:hover {
+  background: #aaaaaa;
+}
+
 .search-wrapper {
   display: none;
   position: fixed;
@@ -212,12 +216,12 @@ li {
 }
 
 .search-wrapper i {
-
   position: absolute;
   right: 16px;
   font-size: 22px;
   top: 11px;
 }
+
 
 /*news card*/
 .news-card {

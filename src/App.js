@@ -6,7 +6,7 @@ import NewsDetailPage from './components/NewsDetailPage'
 import Index from './components/Index';
 
 
-window.the_url = "http://127.0.0.1:8000";
+window.the_url = "https://api.whusu.org";
 
 class App extends Component {
     render() {
