@@ -16,6 +16,35 @@ li {
   box-sizing: border-box;
 }
 
+@media (max-width: 600px) {
+  .side-bar, .header-tab-bar, .news-list-action {
+    display: none;
+  }
+
+  .header-title {
+    padding: 0;
+    text-align: center;
+  }
+
+  .news-list {
+    padding: 0 !important;
+  }
+
+  .news-card {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .get-more-btn {
+    position: relative !important;
+    width: 100% !important;
+    margin: 0 !important;
+    left: 0 !important;
+  }
+
+
+
+}
 /*top bar*/
 .header {
   width: 100%;
@@ -93,8 +122,9 @@ li {
   padding-top: 20px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   overflow-y: scroll;
-
 }
+
+
 
 .side-bar a {
   display: block;
@@ -172,8 +202,21 @@ li {
   padding: 40px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   min-height: 800px;
+}
+
+.get-more-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #283593;
+  cursor: pointer;
 }
 
 .news-list-action {

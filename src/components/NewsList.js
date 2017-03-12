@@ -145,11 +145,11 @@ class NewsList extends React.Component {
                         ))
                     }
                 </div>
+                <div className="get-more-btn" onClick={this.getMore}>加载更多</div>
                 <Loading open={this.state.loading}/>
                 <div className="news-list-action">
                     <div className="news-list-btn" onClick={this.showSearchInput}><i className="fa fa-search"/></div>
                     <div className="news-list-btn" onClick={this.backToTop}><i className="fa fa-angle-up"/></div>
-                    <div className="news-list-btn" onClick={this.getMore}><i className="fa fa-angle-down"/></div>
                 </div>
                 <div className="search-wrapper" id="js_search_wrapper">
                     <input type="text" placeholder="搜索" onChange={this.handleSearchInputChange}/>
